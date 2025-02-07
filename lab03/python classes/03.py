@@ -1,13 +1,16 @@
-class Shape():
+class Shape:
+    length = 0
     def __init__(self):
-        self.area_value = 0
-    def area(self):
-        print(self.area)
+        self.length = 0
+    def printArea(self):
+        print(0)
 
 class Rectangle(Shape):
-    def area(self, length, width):
-        self.area = self.length * self.width
-        print(self.area)
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    def printArea(self):
+        print(self.length * self.width)
 
 rec_area = Rectangle(12, 13)
-rec_area.area()
+rec_area.printArea()
