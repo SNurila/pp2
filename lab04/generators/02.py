@@ -5,5 +5,4 @@ def gen(n):
         if i % 2 == 0:
             yield i
 
-for num in gen(n):
-    print(num)
+print(*gen(n), sep = ',')
