@@ -7,7 +7,7 @@ pygame.font.init()
 FPS = 60
 FramePerSec = pygame.time.Clock()
 
-# Colors
+
 WHITE = (255, 255, 255)
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
@@ -15,7 +15,7 @@ SCREEN_HEIGHT = 600
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Coin Racer")
 background = pygame.image.load('/Users/nurilasalamat/Documents/pp2/lab09/racer/AnimatedStreet.png')
-# --- Coin classes ---
+
 class Coin(pygame.sprite.Sprite):
     def __init__(self, image_path, weight):
         super().__init__()
@@ -35,7 +35,7 @@ class Coin(pygame.sprite.Sprite):
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
-# --- Player ---
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -53,7 +53,7 @@ class Player(pygame.sprite.Sprite):
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
-# --- Enemy ---
+
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -71,7 +71,7 @@ class Enemy(pygame.sprite.Sprite):
     def draw(self, surface):
         surface.blit(self.image, self.rect)
 
-# --- Score Display ---
+
 class Label:
     def __init__(self):
         self.score = 0
@@ -84,49 +84,48 @@ class Label:
     def update_score(self, amount):
         self.score += amount
 
-# --- Game Setup ---
 player = Player()
 enemy = Enemy()
 label = Label()
 
-# Create coins of different values
+
 coins = pygame.sprite.Group(
     Coin("/Users/nurilasalamat/Documents/pp2/lab09/racer/Coin_gold.png", 1),
     Coin("/Users/nurilasalamat/Documents/pp2/lab09/racer/Coin_silver.png", 2),
     
 )
 
-# --- Main Loop ---
+
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
 
-    # Update logic
+
     player.update()
     for coin in coins:
         coin.move()
 
     enemy.move()
 
-    # Check for coin collision
+
     for coin in coins:
         if player.rect.colliderect(coin.rect):
             label.update_score(coin.weight)
             coin.reset()
 
-    # Enemy speeds up every 5 points
+
     if label.score // 5 + 5 > enemy.speed:
         enemy.speed += 1
 
-    # Check for collision with enemy
+
     if player.rect.colliderect(enemy.rect):
         print("Game Over! Final Score:", label.score)
         pygame.quit()
         sys.exit()
 
-    # Draw everything
+
     
     DISPLAYSURF.fill(WHITE)
     DISPLAYSURF.blit(background, (0, 0))
