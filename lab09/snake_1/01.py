@@ -37,7 +37,7 @@ speed = 5
 
 
 def load_maze(level_num):
-    maze_file = f"/Users/nurilasalamat/Documents/pp2/lab09/snake/levels/level{level_num}.txt"
+    maze_file = f"/Users/nurilasalamat/Desktop/pp2/lab09/snake_1/levels/level{level_num}.txt"
     walls = set()
     try:
         with open(maze_file, "r") as file:

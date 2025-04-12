@@ -38,7 +38,7 @@ def main():
                 if event.key == pygame.K_ESCAPE:
                     return
 
-                # Color selection keys
+                
                 if event.key == pygame.K_r:
                     mode = 'red'
                 elif event.key == pygame.K_g:
@@ -52,7 +52,7 @@ def main():
                 elif event.key == pygame.K_e:
                     drawing_mode = "eraser"
 
-                # Drawing modes keys
+               
                 elif event.key == pygame.K_t:
                     drawing_mode = "rect"
                 elif event.key == pygame.K_c:
@@ -74,7 +74,7 @@ def main():
                 elif event.button == 3:
                     radius = max(1, radius - 1)
 
-                shape_start = event.pos  # Save the start point for shape drawing
+                shape_start = event.pos  
 
             if event.type == pygame.MOUSEMOTION:
                 position = event.pos
@@ -84,13 +84,13 @@ def main():
 
         screen.fill((0, 0, 0))
 
-        # Draw freehand lines
+      
         i = 0
         while i < len(points) - 1:
             drawLineBetween(screen, i, points[i][0], points[i + 1][0], radius, points[i][1])
             i += 1
 
-        # Draw geometric shapes
+       
         if shape_start:
             current_pos = pygame.mouse.get_pos()
             draw_shape(screen, drawing_mode, shape_start, current_pos, colors[mode])

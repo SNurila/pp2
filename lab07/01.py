@@ -20,9 +20,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Mickey Clock")
 
 def rotate_hand(image, angle):
-    """ Rotates an image around its center. """
+    
     rotated_image = pygame.transform.rotate(image, -angle)  
-    rect = rotated_image.get_rect(center=CENTER)
+    rect = rotated_image.get_rect(center = CENTER)
     return rotated_image, rect
 
 running = True

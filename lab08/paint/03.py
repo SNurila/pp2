@@ -7,7 +7,7 @@ def main():
     
     radius = 15
     mode = 'blue'
-    drawing_mode = "line"  # "line", "rect", "circle", "eraser"
+    drawing_mode = "line" 
     points = []
     rect_start = None
     circle_start = None
@@ -63,9 +63,9 @@ def main():
                     drawing_mode = "line"
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:  # Left click to increase radius
+                if event.button == 1:  
                     radius = min(200, radius + 1)
-                elif event.button == 3:  # Right click to decrease radius
+                elif event.button == 3:  
                     radius = max(1, radius - 1)
 
                 if drawing_mode == "rect":
@@ -77,24 +77,24 @@ def main():
                 position = event.pos
                 if drawing_mode == "line" or drawing_mode == "eraser":
                     points.append((position, mode if drawing_mode != "eraser" else "eraser"))
-                    points = points[-256:]  # Limit to 256 points
+                    points = points[-256:]  
         
         screen.fill((0, 0, 0))
 
-        # Draw lines
+       
         i = 0
         while i < len(points) - 1:
             drawLineBetween(screen, i, points[i][0], points[i + 1][0], radius, points[i][1])
             i += 1
 
-        # Draw rectangle
+  
         if drawing_mode == "rect" and rect_start:
             current_pos = pygame.mouse.get_pos()
             rect_width = current_pos[0] - rect_start[0]
             rect_height = current_pos[1] - rect_start[1]
             pygame.draw.rect(screen, colors[mode], (rect_start[0], rect_start[1], rect_width, rect_height), 2)
 
-        # Draw circle
+   
         if drawing_mode == "circle" and circle_start:
             current_pos = pygame.mouse.get_pos()
             radius = int(((current_pos[0] - circle_start[0]) ** 2 + (current_pos[1] - circle_start[1]) ** 2) ** 0.5)

@@ -14,7 +14,7 @@ SCREEN_HEIGHT = 600
 
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Coin Racer")
-background = pygame.image.load('/Users/nurilasalamat/Documents/pp2/lab09/racer/AnimatedStreet.png')
+background = pygame.image.load('/Users/nurilasalamat/Desktop/pp2/lab09/racer_1/AnimatedStreet.png')
 
 class Coin(pygame.sprite.Sprite):
     def __init__(self, image_path, weight):
@@ -39,7 +39,7 @@ class Coin(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("/Users/nurilasalamat/Documents/pp2/lab09/racer/Player.png")
+        self.image = pygame.image.load("/Users/nurilasalamat/Desktop/pp2/lab09/racer_1/Player.png")
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
 
@@ -57,7 +57,7 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.transform.scale(pygame.image.load("/Users/nurilasalamat/Documents/pp2/lab09/racer/Enemy.png"), (60, 60))
+        self.image = pygame.transform.scale(pygame.image.load("/Users/nurilasalamat/Desktop/pp2/lab09/racer_1/Enemy.png"), (60, 60))
         self.rect = self.image.get_rect()
         self.speed = 5
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
@@ -90,8 +90,8 @@ label = Label()
 
 
 coins = pygame.sprite.Group(
-    Coin("/Users/nurilasalamat/Documents/pp2/lab09/racer/Coin_gold.png", 1),
-    Coin("/Users/nurilasalamat/Documents/pp2/lab09/racer/Coin_silver.png", 2),
+    Coin("/Users/nurilasalamat/Desktop/pp2/lab09/racer_1/Coin_gold.png", 1),
+    Coin("/Users/nurilasalamat/Desktop/pp2/lab09/racer_1/Coin_silver.png", 2),
     
 )
 

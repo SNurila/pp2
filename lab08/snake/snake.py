@@ -1,7 +1,7 @@
 import pygame
 import random
 import sys
-import os
+
 
 
 pygame.init()
@@ -12,7 +12,7 @@ CELL_SIZE = 20
 COLS = WIDTH // CELL_SIZE
 ROWS = HEIGHT // CELL_SIZE
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Snake Maze Game")
+
 
 
 SNAKE_COLOR = (12, 237, 211)
@@ -22,25 +22,18 @@ BG_COLOR = (0, 0, 0)
 WALL_COLOR = (100, 100, 100)
 TEXT_COLOR = (255, 255, 255)
 
-
 font = pygame.font.SysFont("Arial", 24)
-
-
 clock = pygame.time.Clock()
-
-
 snake = [(40, 40)]
 dx, dy = 1, 0
 step = CELL_SIZE
-
-
 score = 0
 level = 1
 speed = 5
 
 
 def load_maze(level_num):
-    maze_file = f"/Users/nurilasalamat/Documents/pp2/lab08/snake/levels/level{level_num}.txt"
+    maze_file = f"/Users/nurilasalamat/Desktop/pp2/lab08/snake/levels/level{level_num}.txt"
     walls = set()
     try:
         with open(maze_file, "r") as file:
