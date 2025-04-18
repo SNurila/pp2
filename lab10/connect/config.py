@@ -12,5 +12,5 @@ def load_config(filename='database.ini', section='postgresql'):
         raise Exception('Section {0} not found in the {1} file'.format(section, filename))
     return config
 if __name__ == '__main__':
-    config = load_config('/Users/nurilasalamat/Desktop/pp2/lab10/database.ini')
+    config = load_config('/Users/nurilasalamat/Desktop/pp2/lab10/connect/database.ini')
     print(config)

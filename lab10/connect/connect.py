@@ -12,7 +12,7 @@ def connect(config):
 
 
 if __name__ == '__main__':
-    config = load_config('/Users/nurilasalamat/Desktop/pp2/lab10/database.ini')
+    config = load_config('/Users/nurilasalamat/Desktop/pp2/lab10/connect/database.ini')
     connect(config)
 
 
